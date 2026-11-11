@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img" aria-label="Libreto">
+  <rect width="32" height="32" rx="7" fill="#1c1b19"/>
+  <rect x="6.5" y="5" width="19" height="22" rx="1.8" fill="#f4f2ee"/>
+  <rect x="6.5" y="5" width="4.5" height="22" rx="1.8" fill="#e2ddd6"/>
+  <rect x="9.2" y="5" width="1.8" height="22" fill="#e2ddd6"/>
+  <path fill="#1c1b19" d="M17 5h6.2v9.2l-3.1-2.2-3.1 2.2V5z"/>
+</svg>

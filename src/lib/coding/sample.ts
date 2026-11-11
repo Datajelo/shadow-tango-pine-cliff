@@ -1,0 +1,110 @@
+import { buildProject } from "./build.ts";
+import { linesToRows } from "./io.ts";
+import type { Project } from "./types.ts";
+
+const MAYO = [
+  "Kraft",
+  "kraft",
+  "KRAFT",
+  "Kraf",
+  "Craft",
+  "Krfat",
+  "Mayonesa Kraft",
+  "Kraft.",
+  "Mavesa",
+  "maveza",
+  "Mabesa",
+  "Mavesaa",
+  "mavesa",
+  "Mavesa, Kraft",
+  "Kraft, Mavesa",
+  "Hellmann's",
+  "Hellmanns",
+  "Hellmans",
+  "Helmans",
+  "hellman",
+  "Heinz",
+  "heinz",
+  "Heins",
+  "Hienz",
+  "McCormick",
+  "Mc Cormick",
+  "Macormick",
+  "Mavesa, Hellmann's, Kraft",
+  "Natura",
+  "natural",
+  "Fruco",
+  "otros",
+  "Otras marcas",
+  "no se",
+  "No sé",
+  "no recuerdo",
+  "ns/nr",
+  "no aplica",
+  "No consumo",
+  "ninguna",
+  "Kraft, no se",
+  "",
+];
+
+const OPINIONS = [
+  "es muy cara",
+  "está cara",
+  "muy cara",
+  "sale cara",
+  "buena calidad",
+  "es de buena calidad",
+  "calidad",
+  "me gusta el sabor",
+  "por el sabor",
+  "sabe rica",
+  "está rica",
+  "es rica",
+  "no me gusta",
+  "no es rica",
+  "porque la compra mi mamá",
+  "la compra mi mama",
+  "es la de siempre",
+  "la de siempre",
+  "rinde más",
+  "rinde mas",
+  "es cremosa",
+  "queda cremosa",
+  "no se",
+  "no aplica",
+  "otros",
+  "el empaque es bonito",
+  "empaque bonito",
+];
+
+export function sampleMayo(): Project {
+  return buildProject({
+    question: "¿Cuáles marcas de mayonesa conoce, aunque sea de nombre?",
+    settings: {
+      mode: "marca",
+      categoryWords: "mayonesa, mayo, aderezo",
+      splitAnd: false,
+      minFrequency: 2,
+      emptyAs99: false,
+    },
+    columns: ["respuesta"],
+    textColumn: "respuesta",
+    rows: linesToRows(MAYO),
+  });
+}
+
+export function sampleOpinions(): Project {
+  return buildProject({
+    question: "¿Por qué compra esa mayonesa?",
+    settings: {
+      mode: "opinion",
+      categoryWords: "",
+      splitAnd: false,
+      minFrequency: 2,
+      emptyAs99: false,
+    },
+    columns: ["respuesta"],
+    textColumn: "respuesta",
+    rows: linesToRows(OPINIONS),
+  });
+}
